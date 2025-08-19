@@ -53,6 +53,12 @@ while True:
         else:
             print("Não foi possível realizar o saque. O valor informado é invalido.")
             
+    elif opcao == "e":
+        print("\n=================EXTRATO=================")
+        print("Até o momento, não houve nenhuma movimentação na conta" if not extrato else extrato)
+        print(f"\nSaldo: R$ {saldo:.2}")
+        print("\n=========================================")
+        
     elif opcao == "q":
         break
 
