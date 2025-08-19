@@ -53,7 +53,7 @@ Nas versões **v2** e **v3** serão implementadas novas funcionalidades.
 
 ## 👨‍💻 Sobre o Autor / Jornada
 
-Este projeto foi desenvolvido como parte dos cursos **Python Fundamentals** e **Suzano - Python Developer #2**, realizado na [DIO](https://www.dio.me/) e ministrado pelo professor **Guilherme Arthur de Carvalho**.  
+Este projeto foi desenvolvido como parte dos cursos **Python Fundamentals** e **Suzano - Python Developer #2**, realizado na [DIO](https://www.dio.me/) e ministrado pelo professor [**Guilherme Arthur de Carvalho**.  ](https://www.linkedin.com/in/decarvalhogui/)
 
 Sou **supervisor administrativo** em transição de carreira para a área de **desenvolvimento web**.  
 Tenho formação em **Matemática Industrial** e atualmente curso **Gestão de TI**.  
@@ -70,4 +70,4 @@ Aprendi Python de forma **autodidata** e agora estou organizando meus projetos a
 
 ## ✨ Autor
 
-Implementado por *[Seu Nome]*.
+Implementado por [*Glayton Martins*](https://www.linkedin.com/in/gr-martins/).
