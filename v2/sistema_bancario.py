@@ -109,14 +109,38 @@ def listar_usuarios(usuarios):
             Endereço:\t{usuario["endereço"]} 
         """
         )
-         
 
+
+def criar_conta(agencia, numero_conta, cpf, usuarios):
+    try:
+        cpf = int(cpf)
+    except ValueError:
+        print("Não foi possivel criar a conta. No campo CPF não foram informados somente números.")
+        return None
+    
+    usuario = filtrar_usuario(cpf, usuarios)
+    
+    if usuario:
+        return {
+            "agencia": agencia, 
+            "conta": numero_conta,
+            "usuario": usuario["cpf"],
+            }
+    else:
+        print("Não foi possível criar a conta! Usuário não localizado.")
+        return None
+    
 def main():
+    LIMITE_SAQUES = 3
+    AGENCIA = "0001"
+
     saldo = 0
     limite = 500
     extrato = ""
     numero_saques = 0
-    LIMITE_SAQUES = 3
+    contador_contas = 1
+    usuarios = []
+    contas = []
 
     while True:
         
@@ -145,7 +169,16 @@ def main():
 
         elif opcao == "lu":
             listar_usuarios(usuarios)
+
+        elif opcao == "nc":
+            cpf = input("Digite o CPF do usuário (somente os números): ")
+            conta = criar_conta(AGENCIA, contador_contas, cpf, usuarios)
             
+            if conta:
+                contas.append(conta)
+                contador_contas += 1
+                print("Sua conta foi criada com sucesso!")
+
         elif opcao == "q":
             break
 
