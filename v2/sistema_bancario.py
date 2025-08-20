@@ -130,6 +130,17 @@ def criar_conta(agencia, numero_conta, cpf, usuarios):
         print("Não foi possível criar a conta! Usuário não localizado.")
         return None
     
+
+def listar_contas(contas):
+    for conta in contas:
+        print(
+            f"""
+            Agencia:\t{conta["agencia"]}
+            Conta:\t{conta["conta"]} 
+            Usuario:\t{conta["usuario"]}
+            """ 
+        )
+
 def main():
     LIMITE_SAQUES = 3
     AGENCIA = "0001"
@@ -178,6 +189,9 @@ def main():
                 contas.append(conta)
                 contador_contas += 1
                 print("Sua conta foi criada com sucesso!")
+
+        elif opcao == "lc":
+            listar_contas(contas)
 
         elif opcao == "q":
             break
