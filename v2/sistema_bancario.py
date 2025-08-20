@@ -60,6 +60,45 @@ def exibir_extrato(saldo, /, *, extrato):
     print("\n=========================================")
 
 
+def filtrar_usuario(cpf, usuarios):
+    for usuario in usuarios:
+        if usuario["cpf"] == cpf:
+            return usuario
+    return None
+
+
+def criar_usuario(usuarios):
+    nome = input("Digite o nome do usuário: ")
+    data_de_nascimento = input("Digite a data de nascimento do usuário: ")
+    cpf = input("Digite o CPF do usuário (somente os números): ")
+    endereco = input(
+        "Digite o endereço do usuario (formato: logradouro, número - bairro - cidade/UF): "
+        )
+    
+    try:
+        cpf = int(cpf)
+    except ValueError:
+        print("Não foi possivel criar o usuário. No campo CPF não foram informados somente números.")
+        return None
+    
+    usuario = filtrar_usuario(cpf, usuarios)
+    
+    if usuario:
+        print("Não foi possível criar o usuário. Já existe um usuário com esse CPF.")
+        return None
+    else:
+        usuarios.append(
+            {
+                "nome": nome,    
+                "data de nascimento": data_de_nascimento,
+                "cpf": cpf,
+                "endereço": endereco
+            }
+        )
+        print(f"O usuário {nome} foi criado com sucesso!")
+    return usuarios
+
+
 def main():
     saldo = 0
     limite = 500
@@ -88,7 +127,10 @@ def main():
                 
         elif opcao == "e":
             exibir_extrato(saldo, extrato=extrato)
-            
+
+        elif opcao == "nu":
+            usuarios = criar_usuario(usuarios)   
+
         elif opcao == "q":
             break
 
