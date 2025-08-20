@@ -4,7 +4,7 @@ Este repositório contém a evolução de um projeto de sistema bancário, desen
 O objetivo é implementar operações bancárias em Python, introduzindo conceitos gradualmente:
 
 - **v1** → implementação básica (sem funções e sem POO).  
-- **v2** → introdução de **funções** para modularizar o código.  
+- **v2** → modularização com funções + cadastro de usuários e contas.  
 - **v3** → refatoração completa utilizando **Programação Orientada a Objetos (POO)**.  
 
 ---
@@ -14,7 +14,7 @@ O objetivo é implementar operações bancárias em Python, introduzindo conceit
 ```
 📁 sistema_bancario/
 │── 📁 v1/   # Versão inicial do sistema (sem funções, sem POO)
-│── 📁 v2/   # Versão com funções
+│── 📁 v2/   # Versão com funções e cadastro de usuários/contas
 │── 📁 v3/   # Versão com POO
 │── README.md
 ```
@@ -25,23 +25,19 @@ Cada versão possui um **README.md próprio**, explicando a implementação daqu
 
 ## 🚀 Funcionalidades Gerais do Projeto
 
-Independente da versão, o sistema deverá permitir:
+Independente da versão, o sistema deve permitir:
 
-- **Depósito:**  
-  - Apenas valores positivos.  
-  - Movimentações registradas no extrato.  
+- **Depósito**: valores positivos, registrados no extrato.  
+- **Saque**: limite de 3 saques diários, máximo R$ 500, condicionado ao saldo.  
+- **Extrato**: lista depósitos e saques realizados, mostra saldo atual, mensagem caso não haja movimentações.  
 
-- **Saque:**  
-  - Limite de 3 saques diários.  
-  - Limite de R$ 500,00 por saque.  
-  - Saques condicionados à existência de saldo.  
+**Novidades na v2**:  
+- Uso de **funções** para modularizar o código.  
+- Criação de **usuário (cliente)** com: nome, data de nascimento, CPF e endereço.  
+- Criação de **conta corrente**, vinculada a um usuário.  
+- Listagem de usuários e contas.    
 
-- **Extrato:**  
-  - Lista depósitos e saques realizados.  
-  - Exibe o saldo atual da conta.  
-  - Mensagem especial caso não existam movimentações.  
-
-Nas versões **v2** e **v3** serão implementadas novas funcionalidades.
+Na **v3** serão implementadas novas funcionalidades.
 
 ---
 
