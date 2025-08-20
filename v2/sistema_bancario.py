@@ -99,6 +99,18 @@ def criar_usuario(usuarios):
     return usuarios
 
 
+def listar_usuarios(usuarios):
+    for usuario in usuarios:
+         print(
+            f"""
+            Nome:\t{usuario["nome"]}
+            Data de nascimento:\t{usuario["data de nascimento"]} 
+            CPF:\t{usuario["cpf"]} 
+            Endereço:\t{usuario["endereço"]} 
+        """
+        )
+         
+
 def main():
     saldo = 0
     limite = 500
@@ -131,6 +143,9 @@ def main():
         elif opcao == "nu":
             usuarios = criar_usuario(usuarios)   
 
+        elif opcao == "lu":
+            listar_usuarios(usuarios)
+            
         elif opcao == "q":
             break
 
