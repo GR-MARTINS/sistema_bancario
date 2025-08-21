@@ -1,11 +1,12 @@
 # 💰 Sistema Bancário em Python
 
-Este repositório contém a evolução de um projeto de sistema bancário, desenvolvido como parte dos desafios da [DIO](https://www.dio.me/).  
+Este repositório contém a evolução de um projeto de sistema bancário, desenvolvido como parte dos desafios da [DIO](https://www.dio.me/) e posteriormente expandido.  
 O objetivo é implementar operações bancárias em Python, introduzindo conceitos gradualmente:
 
 - **v1** → implementação básica (sem funções e sem POO).  
 - **v2** → modularização com funções + cadastro de usuários e contas.  
 - **v3** → refatoração completa utilizando **Programação Orientada a Objetos (POO)**.  
+- **v4+** → expansões próprias (manipulação de arquivos, persistência em JSON, banco de dados, APIs, etc.).  
 
 ---
 
@@ -23,21 +24,23 @@ Cada versão possui um **README.md próprio**, explicando a implementação daqu
 
 ---
 
-## 🚀 Funcionalidades Gerais do Projeto
+## 🚀 Evolução por Versão
 
-Independente da versão, o sistema deve permitir:
+- **v1**
+  - Código sequencial, sem funções e sem POO.
+  - Funcionalidades: depósito, saque (limite de R$500 e 3 saques/dia) e extrato.
 
-- **Depósito**: valores positivos, registrados no extrato.  
-- **Saque**: limite de 3 saques diários, máximo R$ 500, condicionado ao saldo.  
-- **Extrato**: lista depósitos e saques realizados, mostra saldo atual, mensagem caso não haja movimentações.  
+- **v2**
+  - Introdução de **funções** para modularizar o código.
+  - Criação de **usuários** (nome, CPF, data de nascimento, endereço).
+  - Criação e listagem de **contas bancárias** vinculadas a usuários.
 
-**Novidades na v2**:  
-- Uso de **funções** para modularizar o código.  
-- Criação de **usuário (cliente)** com: nome, data de nascimento, CPF e endereço.  
-- Criação de **conta corrente**, vinculada a um usuário.  
-- Listagem de usuários e contas.    
-
-Na **v3** serão implementadas novas funcionalidades.
+- **v3**
+  - Refatoração para **Programação Orientada a Objetos (POO)**.
+  - Implementação de classes como `Cliente`, `PessoaFisica`, `Conta`, `ContaCorrente`, `Historico`, `Transacao`, `Saque` e `Deposito`.
+  - Cada cliente gerencia suas próprias contas (não há mais listagem de todos os clientes).
+  - Extrato agora é obtido a partir do histórico de transações, com registro de data/hora.
+  - Baseado no **diagrama UML fornecido pela DIO**.
 
 ---
 
