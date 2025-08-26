@@ -2,6 +2,7 @@ from __future__ import annotations
 from modelos.historico import Historico
 from modelos.transacao import Saque
 
+
 class Conta:
     contador = 0
 
@@ -18,8 +19,20 @@ class Conta:
         return cls(cliente)
 
     @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        self._id = id
+
+    @property
     def saldo(self):
         return self._saldo
+
+    @saldo.setter
+    def saldo(self, saldo):
+        self._saldo = saldo
 
     @property
     def numero(self):
@@ -29,6 +42,10 @@ class Conta:
     def agencia(self):
         return self._agencia
 
+    @agencia.setter
+    def agencia(self, agencia):
+        self._agencia = agencia
+
     @property
     def cliente(self):
         return self._cliente
@@ -36,6 +53,10 @@ class Conta:
     @property
     def historico(self):
         return self._historico
+
+    @historico.setter
+    def historico(self, historico):
+        self._historico = historico
 
     def sacar(self, valor: int):
         saldo = self.saldo
