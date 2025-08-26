@@ -1,6 +1,7 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
 
+
 # interface = classe abstrata
 class Transacao(ABC):
     contador = 0
