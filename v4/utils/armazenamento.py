@@ -1,6 +1,8 @@
 import json
 from modelos.cliente import PessoaFisica, Cliente
-from modelos.conta import ContaCorrente
+from modelos.conta import ContaCorrente, Conta
+from modelos.historico import Historico
+from modelos.transacao import Transacao
 from servicos.cliente import filtrar_cliente
 
 
@@ -39,3 +41,13 @@ def carregar_contas(db: dict, clientes: list[Cliente]):
             db["historico"]["historico"], conta["historico_id"]
         )
         cliente.contas.append(ContaCorrente.from_dict(conta, cliente, historico))
+
+
+def inicializar_contadores(dict: dict):
+    try:
+        Cliente.contador = dict["cliente"]["contador"]
+        Conta.contador = dict["conta"]["contador"]
+        Historico.contador = dict["historico"]["contador"]
+        Transacao.contador = dict["transacao_atual"]
+    except:
+        pass
