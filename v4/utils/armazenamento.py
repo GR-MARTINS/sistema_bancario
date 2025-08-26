@@ -51,3 +51,29 @@ def inicializar_contadores(dict: dict):
         Transacao.contador = dict["transacao_atual"]
     except:
         pass
+
+
+def atualizar_db(clientes: list[Cliente]):
+    db = {
+        "cliente": {"contador": Cliente.contador},
+        "pessoafisica": [],
+        "conta": {"contador": Conta.contador},
+        "contacorrente": [],
+        "historico": {"contador": Historico.contador, "historico": []},
+        "transacao_atual": Transacao.contador,
+    }
+    for cliente in clientes:
+        db["pessoafisica"].append(cliente.to_dict())
+
+        for conta in cliente.contas:
+            dict_conta = conta.to_dict()
+
+            if dict_conta not in db["contacorrente"]:
+                db["contacorrente"].append(dict_conta)
+
+            dict_historico = conta.historico.to_dict()
+
+            if dict_historico not in db["historico"]["historico"]:
+                db["historico"]["historico"].append(dict_historico)
+
+    return db
