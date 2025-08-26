@@ -2,14 +2,25 @@ from servicos.cliente import filtrar_cliente, criar_cliente
 from servicos.conta import criar_conta, listar_contas
 from servicos.transacao import depositar, exibir_extrato, sacar
 from utils.menus import menu_pessoal, menu_principal
+from utils.armazenamento import (
+    carregar_dados,
+    inicializar_contadores,
+    carregar_clientes,
+    carregar_contas,
+    atualizar_db,
+    salvar_dados,
+)
+
 
 def main():
-
+    db = carregar_dados()
     clientes = []
-    contador_de_contas = 1
-    sair = False
+    if db:
+        clientes = carregar_clientes(db) if db else []
+        carregar_contas(db, clientes)
+        inicializar_contadores(db)
 
-    while not sair:
+    while True:
 
         opcao_principal = menu_principal()
 
@@ -36,8 +47,6 @@ def main():
 
                     elif opcao == "nc":
                         conta = criar_conta(cliente)
-                        if conta:
-                            contador_de_contas += 1
 
                     elif opcao == "lc":
                         listar_contas(cliente.contas)
@@ -56,6 +65,8 @@ def main():
                 clientes.append(cliente)
 
         if opcao_principal == "q":
+            db = atualizar_db(clientes)
+            salvar_dados(db)
             print("sessão encerrada!")
             break
 
