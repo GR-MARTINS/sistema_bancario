@@ -9,7 +9,6 @@ def criar_conta(cliente: Cliente):
         cliente.adicionar_conta(conta)
         print(f"\n{cliente.nome}, sua conta foi criada com sucesso!")
         print(f"Agencia: {conta.agencia}\nNumero da conta: {conta.numero}")
-        return conta
 
 
 def filtrar_conta(numero_conta: int, cliente: Cliente):
@@ -35,5 +34,3 @@ def listar_contas(contas: list[Conta]):
                 Numero da conta:\t{conta.numero} 
                 """
             )
-
-
