@@ -12,6 +12,14 @@ class Cliente:
         self.endereco = endereco
         self.contas = []
 
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        self._id = id
+
     def realizar_transacao(self, conta: "Conta", transacao: "Transacao"):
         transacao.registrar(conta)
 
@@ -41,22 +49,22 @@ class PessoaFisica(Cliente):
 
     @classmethod
     def from_dict(cls, pessoa_fisica: dict):
-        obj = cls()
+        obj = cls(
+            pessoa_fisica["cpf"],
+            pessoa_fisica["nome"],
+            pessoa_fisica["endereco"],
+            datetime.strptime(pessoa_fisica["data_nascimento"], "%Y-%m-%d").date(),
+        )
         obj.id = pessoa_fisica["id"]
-        obj.cpf = pessoa_fisica["cpf"]
-        obj.nome = pessoa_fisica["nome"]
-        obj.endereco = pessoa_fisica["endereco"]
-        obj.data_nascimento = datetime().strptime(
-            pessoa_fisica["data_nascimento"], 
-            "%Y-%m-%d").date()
         return obj
-    
+
     def to_dict(self):
         dicionario = {
             "id": self.id,
             "cpf": self.cpf,
             "nome": self.nome,
             "endereco": self.endereco,
-            "data_nascimento": self.data_nascimento
+            "data_nascimento": str(self.data_nascimento),
+            "contas": [conta.id for conta in self.contas],
         }
         return dicionario
