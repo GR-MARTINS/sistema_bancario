@@ -77,3 +77,8 @@ def atualizar_db(clientes: list[Cliente]):
                 db["historico"]["historico"].append(dict_historico)
 
     return db
+
+
+def salvar_dados(dict: dict):
+    with open("db.json", "w", encoding="utf-8") as f:
+        json.dump(dict, f, indent=4, ensure_ascii=False)
