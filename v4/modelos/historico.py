@@ -10,6 +10,26 @@ class Historico:
         self._id = Historico.contador
         self._transacoes = []
 
+    @classmethod
+    def from_dict(cls, dict: dict):
+        obj = cls()
+        obj.id = dict["id"]
+        for item in dict["transacoes"]:
+            obj.transacoes = item
+        return obj
+
+    def to_dict(self):
+        dicionario = {"id": self.id, "transacoes": self.transacoes}
+        return dicionario
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        self._id = id
+
     @property
     def transacoes(self):
         return self._transacoes
