@@ -107,6 +107,25 @@ class ContaCorrente(Conta):
         self.limite = limite
         self.limite_saques = limite_saque
 
+    @classmethod
+    def from_dict(cls, dict_conta: dict, cliente, dict_historico: dict):
+        obj = cls(cliente)
+        obj.id = dict_conta["id"]
+        obj.saldo = dict_conta["saldo"]
+        obj.agencia = dict_conta["agencia"]
+        obj.historico = Historico.from_dict(dict_historico)
+        return obj
+
+    def to_dict(self):
+        dicionario = {
+            "id": self.id,
+            "saldo": self.saldo,
+            "agencia": self.agencia,
+            "cliente_cpf": self.cliente.cpf,
+            "historico_id": self.historico.id,
+        }
+        return dicionario
+
     def sacar(self, valor: int):
         numero_saque = len(
             [
