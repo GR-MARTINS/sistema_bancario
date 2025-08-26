@@ -1,4 +1,5 @@
 import json
+from modelos.cliente import PessoaFisica
 
 
 def carregar_dados():
@@ -9,3 +10,14 @@ def carregar_dados():
 
     except FileNotFoundError:
         return None
+
+
+def carregar_clientes(db: dict):
+    print("\nPor favor, aguarde!")
+    print("Carregando clientes ...")
+
+    clientes = []
+
+    for cliente in db["pessoafisica"]:
+        clientes.append(PessoaFisica.from_dict(cliente))
+    return clientes
