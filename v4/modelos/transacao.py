@@ -18,8 +18,8 @@ class Transacao(ABC):
 
 class Saque(Transacao):
     def __init__(self, valor: int):
-        Saque.contador += 1
-        self._id = Saque.contador
+        Transacao.contador += 1
+        self._id = Transacao.contador
         self._valor = valor
 
     @property
@@ -39,8 +39,8 @@ class Saque(Transacao):
 
 class Deposito(Transacao):
     def __init__(self, valor: int):
-        Deposito.contador += 1
-        self._id = Deposito.contador
+        Transacao.contador += 1
+        self._id = Transacao.contador
         self._valor = valor
 
     @property
