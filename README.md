@@ -6,7 +6,8 @@ O objetivo é implementar operações bancárias em Python, introduzindo conceit
 - **v1** → implementação básica (sem funções e sem POO).  
 - **v2** → modularização com funções + cadastro de usuários e contas.  
 - **v3** → refatoração completa utilizando **Programação Orientada a Objetos (POO)**.  
-- **v4+** → expansões próprias (manipulação de arquivos, persistência em JSON, banco de dados, APIs, etc.).  
+- **v4** → persistência em arquivos JSON + modularização em pacotes.  
+- **v5+** → futuras expansões (banco de dados, APIs, etc.).  
 
 ---
 
@@ -14,13 +15,14 @@ O objetivo é implementar operações bancárias em Python, introduzindo conceit
 
 ```
 📁 sistema_bancario/
-│── 📁 v1/   # Versão inicial do sistema (sem funções, sem POO)
+│── 📁 v1/   # Versão inicial (sem funções, sem POO)
 │── 📁 v2/   # Versão com funções e cadastro de usuários/contas
 │── 📁 v3/   # Versão com POO
+│── 📁 v4/   # Versão com persistência em JSON e modularização em pacotes
 │── README.md
 ```
 
-Cada versão possui um **README.md próprio**, explicando a implementação daquela etapa.
+Cada versão possui um **README.md próprio**, detalhando a implementação daquela etapa.
 
 ---
 
@@ -42,11 +44,22 @@ Cada versão possui um **README.md próprio**, explicando a implementação daqu
   - Extrato agora é obtido a partir do histórico de transações, com registro de data/hora.
   - Baseado no **diagrama UML fornecido pela DIO**.
 
+- **v4**
+  - Introdução de **persistência em arquivos JSON** (`db.json`).
+  - Modularização em pacotes:
+    - `modelos/` → classes principais (`cliente`, `conta`, `historico`, `transacao`).
+    - `servicos/` → regras de negócio (`cliente`, `conta`, `transacao`).
+    - `utils/` → persistência (`armazenamento.py`) e menus.
+  - Criação de `main.py` como **ponto de entrada** do sistema.
+  - Prepara terreno para próximas funcionalidades: **PessoaJuridica, ContaPJ, ContaPoupança, senha para transações e acesso às contas**.
+
 ---
 
 ## 🛠 Tecnologias Utilizadas
 
 - [Python 3](https://www.python.org/)
+- Estrutura modular com pacotes
+- Persistência em **JSON**
 
 ---
 
